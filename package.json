@@ -1,0 +1,42 @@
+{
+  "name": "jsonflow",
+  "version": "1.0.0",
+  "description": "minimalist dataflow programming based on jsonschema references (nodejs/coffeescript)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "json-ref-lite": "~1.0.61",
+    "typeshave": "~0.2.44"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "browser":"/bin/bash -c 'coffee -c *.coffee test/*.coffee && browserify -r .:jsonflow | uglifyjs -o jsonflow.min.js'",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://coderofsalvation@github.com/coderofsalvation/jsonflow.git"
+  },
+  "keywords": [
+    "dataflow",
+    "flowbased",
+    "graph",
+    "circular",
+    "json",
+    "graphbased",
+    "programming",
+    "jsongraph",
+    "jsonpointers",
+    "jsonschema",
+    "jsonschema",
+    "references"
+  ],
+  "author": "coderofsalvation",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/coderofsalvation/jsonflow/issues"
+  },
+  "homepage": "https://github.com/coderofsalvation/jsonflow"
+}
