@@ -2,7 +2,7 @@
 (function() {
   var jflow, json, path, process;
 
-  jflow = require('json-dataflow');
+  jflow = require('jsonflow');
 
   path = [];
 

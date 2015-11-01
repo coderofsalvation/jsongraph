@@ -2,7 +2,7 @@
 (function() {
   var jflow, json, process;
 
-  jflow = require('json-dataflow');
+  jflow = require('jsonflow');
 
   json = {
     a: {

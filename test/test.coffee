@@ -1,4 +1,4 @@
-jflow = require 'json-dataflow' 
+jflow = require 'jsonflow' 
 
 # create the graph: a<->b<-c
 

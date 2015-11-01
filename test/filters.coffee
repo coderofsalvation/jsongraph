@@ -1,4 +1,4 @@
-jflow = require 'json-dataflow' 
+jflow = require 'jsonflow' 
 
 path = []
 
