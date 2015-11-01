@@ -8,7 +8,7 @@ or in the browser
 
     <script type="text/javascript" src="jsonflow.min.js"></script>
 
-Lets create a graph a<->b<-c :
+Lets create a graph b<->a<-c :
 
     jflow = require 'json-dataflow' 
 

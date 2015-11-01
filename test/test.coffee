@@ -1,6 +1,6 @@
 jflow = require 'jsonflow' 
 
-# create the graph: a<->b<-c
+# create the graph: b<->a<-c<-d
 
 json =
   a:

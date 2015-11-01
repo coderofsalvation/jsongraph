@@ -1,6 +1,6 @@
 {
   "name": "jsonflow",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "minimalist dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {
@@ -22,6 +22,8 @@
   "keywords": [
     "dataflow",
     "flowbased",
+    "flow",
+    "json flow",
     "graph",
     "circular",
     "json",
