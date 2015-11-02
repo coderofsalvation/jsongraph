@@ -15,9 +15,10 @@ json =
 # bind custom and global functions 
 
 process = {}
-process.increment = (node,data) ->
+process.increment = (me,data,next) ->
   data.arr = [] if not data.arr?
   data.arr.push new Date()
+  next me, data
 
 process.a = process.b = process.increment # re-use function 
 

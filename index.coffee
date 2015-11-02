@@ -18,11 +18,11 @@ module.exports = ( () ->
     if node? and not _.halt node,data
       try
         console.log "->"+node.name if process.env.DEBUG
-        result = node.process node,data 
-        node.processed = ( if not node.processed? then 1 else ++node.processed )
         filter node,data for filtername,filter of @.filters.global 
-        for o in node.output
-          @._run o, clone data if o?.process?
+        result = node.process node,data, (node,data) ->
+          node.processed = ( if not node.processed? then 1 else ++node.processed )
+          for o in node.output
+            @._run o, clone data if o?.process?
       catch err 
         return if err is "flow-stop" 
         throw err
