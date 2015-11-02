@@ -28,32 +28,34 @@
       custom: {}
     };
     this._run = function(node, data, name, processed) {
-      var _, err, filter, filtername, ref, result;
+      var _, err, result;
       _ = this.opts;
       if ((node != null) && !_.halt(node, data)) {
         try {
           if (process.env.DEBUG) {
             console.log("->" + node.name);
           }
-          ref = this.filters.global;
-          for (filtername in ref) {
-            filter = ref[filtername];
-            filter(node, data);
-          }
           return result = node.process(node, data, function(node, data) {
-            var i, len, o, ref1, results;
-            node.processed = (node.processed == null ? 1 : ++node.processed);
-            ref1 = node.output;
-            results = [];
-            for (i = 0, len = ref1.length; i < len; i++) {
-              o = ref1[i];
-              if ((o != null ? o.process : void 0) != null) {
-                results.push(this._run(o, clone(data)));
-              } else {
-                results.push(void 0);
-              }
+            var filter, filtername, i, len, o, ref, ref1, results;
+            ref = this.filters.global;
+            for (filtername in ref) {
+              filter = ref[filtername];
+              filter(node, data);
             }
-            return results;
+            node.processed = (node.processed == null ? 1 : ++node.processed);
+            if (node.output != null) {
+              ref1 = node.output;
+              results = [];
+              for (i = 0, len = ref1.length; i < len; i++) {
+                o = ref1[i];
+                if ((o != null ? o.process : void 0) != null) {
+                  results.push(this._run(o, clone(data)));
+                } else {
+                  results.push(void 0);
+                }
+              }
+              return results;
+            }
           });
         } catch (_error) {
           err = _error;

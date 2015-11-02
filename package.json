@@ -1,6 +1,6 @@
 {
   "name": "jsonflow",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "minimalist dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {
