@@ -64,7 +64,7 @@
           if (this.opts.verbose > 1) {
             console.log("[ " + node.name + " ]\n  ├ input : " + JSON.stringify(data));
           }
-          process = (cb != null ? cb : function(node, data, next) {
+          process = cb = (cb != null ? cb : function(node, data, next) {
             return next(node, data);
           });
           if ((node.type != null) && (jg.types[node.type] != null)) {

@@ -55,7 +55,7 @@ output:
 
 # Feature: register plugins & process data
 
-You can nodes process data, and do graph- or flowbased programming like so:
+You can process data, and do graph- or flowbased programming like so:
 
     json =
       graph:
@@ -105,7 +105,7 @@ This is especially handy for debugging and safety purposes.
 
 output:
 
-    path: b->a
+    b->a
 
 # Graph Expressions
 

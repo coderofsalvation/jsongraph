@@ -39,7 +39,7 @@ module.exports = ( (jg) ->
     if node? and not _.halt node,data
       try
         console.log "[ "+node.name+" ]\n  ├ input : "+ JSON.stringify data if @.opts.verbose > 1
-        process = ( if cb? then cb else (node,data,next) -> next(node,data) )
+        process = cb =( if cb? then cb else (node,data,next) -> next(node,data) )
         if node.type? and jg.types[node.type]?
           process = (node,data,next) -> 
             jg.types[node.type](node,data, () ->
