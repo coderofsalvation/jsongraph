@@ -1,6 +1,6 @@
 {
   "name": "jsongraph",
-  "version": "1.0.6",
+  "version": "1.0.65",
   "description": "powerful minimalist graph/dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {

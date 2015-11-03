@@ -53,7 +53,7 @@ output:
  
 > NOTE: see javascript version [here](/test/test.js)
 
-# Feature: register plugins
+# Feature: register plugins & process data
 
 You can nodes process data, and do graph- or flowbased programming like so:
 
@@ -65,6 +65,15 @@ You can nodes process data, and do graph- or flowbased programming like so:
     jg.register 'foo', (me,data,next) ->
       data.foo = true;
       next me,data
+
+output:
+
+    [ b ]
+      ├ input : {}
+      ├ output: {"b":true}
+    [ a ]
+      ├ input : {"b":true}
+      ├ output: {"b":true,"foo":true}
 
 Now when `data.foo` is set, whenever a node with type `foo` is executed.
 
