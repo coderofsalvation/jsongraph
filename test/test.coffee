@@ -1,34 +1,15 @@
-jflow = require 'jsonflow' 
+jg = require 'jsongraph' 
 
 # create the graph: b<->a<-c<-d
-
 json =
-  a:
-    output: [{"$ref": "#/b"}]
-  b:
-    output: [{"$ref": "#/a"}]
-  c:
-    output: [{"$ref": "#/a"}]
-  d:
-    output: [{"$ref": "#/c"}]
+  graph:
+    a:
+      output: [{"$ref": "#/graph/b"}]
+    b:
+      output: [{"$ref": "#/graph/a"}]
+    c:
+      output: [{"$ref": "#/graph/a"}]
 
-# bind some functions
-
-process = 
-  a: (me,data,next) -> 
-    data.a = true
-    console.dir data
-    next me, data 
-
-  b: (me,data,next) ->
-    throw 'flow-stop' if data.b? # stops flow if already processed
-    data.b = true
-    next me, data 
-
-  c: (me,data,next) ->
-    data.c = true 
-    next me, data 
-
-jflow.run json, {foo:"bar"}, {root:'b', process: process }
-
-jflow.run json, {foo:"bar"}, {root:'d', process: process }
+jg.opts.verbose = 2
+graph = jg.init json
+graph.run 'b', {foo:"bar"}

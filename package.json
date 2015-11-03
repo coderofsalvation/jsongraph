@@ -1,23 +1,24 @@
 {
-  "name": "jsonflow",
+  "name": "jsongraph",
   "version": "1.0.5",
-  "description": "minimalist dataflow programming based on jsonschema references (nodejs/coffeescript)",
+  "description": "powerful minimalist graph/dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
     "json-ref-lite": "~1.0.61",
+    "property-expr": "^1.3.1",
     "typeshave": "~0.2.44"
   },
   "devDependencies": {},
   "scripts": {
-    "browser":"/bin/bash -c 'coffee -c *.coffee test/*.coffee && browserify -r .:jsonflow | uglifyjs -o jsonflow.min.js'",
+    "browser": "/bin/bash -c 'coffee -c *.coffee lib/*.coffee test/*.coffee && browserify -r .:jsongraph | uglifyjs -o jsongraph.min.js'",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "https://coderofsalvation@github.com/coderofsalvation/jsonflow.git"
+    "url": "https://coderofsalvation@github.com/coderofsalvation/jsongraph.git"
   },
   "keywords": [
     "dataflow",
@@ -25,6 +26,8 @@
     "flow",
     "json flow",
     "graph",
+    "jsongraph",
+    "json graph",
     "circular",
     "json",
     "graphbased",
@@ -38,7 +41,7 @@
   "author": "coderofsalvation",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/coderofsalvation/jsonflow/issues"
+    "url": "https://github.com/coderofsalvation/jsongraph/issues"
   },
-  "homepage": "https://github.com/coderofsalvation/jsonflow"
+  "homepage": "https://github.com/coderofsalvation/jsongraph"
 }
