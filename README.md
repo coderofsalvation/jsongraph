@@ -8,11 +8,11 @@ Dont think trees, think jsongraph.
 
 or in the browser    
 
-    <script type="text/javascript" src="jsonflow.min.js"></script>
+    <script type="text/javascript" src="jsongraph.min.js"></script>
 
 Graph b<->a<-c expressed in json using jsonschema pointers:
 
-    jg = require 'json-dataflow' 
+    jg = require 'jsongraph' 
     json = {
       "a": { output: [{"$ref":"/graph/b"}] },
       "b": { output: [{"$ref":"/graph/a"}] },
