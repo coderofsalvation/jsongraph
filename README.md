@@ -1,12 +1,12 @@
 <img alt="" src="logo.png"/>
 
-Dont think trees, think jsongraph.
+Dont think trees, think jsongraph, think graphmorphic applications.
 
 ## Usage 
 
     npm install --save jsongraph
 
-or in the browser    
+or in the browser (adds 3.3k gzipped)
 
     <script type="text/javascript" src="jsongraph.min.js"></script>
 

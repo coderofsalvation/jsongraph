@@ -1,6 +1,6 @@
 {
   "name": "jsongraph",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "description": "powerful minimalist graph/dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {
@@ -14,6 +14,7 @@
   "devDependencies": {},
   "scripts": {
     "browser": "/bin/bash -c 'coffee -c *.coffee lib/*.coffee test/*.coffee && browserify -r .:jsongraph | uglifyjs -o jsongraph.min.js'",
+    "browserfull": "/bin/bash -c 'coffee -c *.coffee lib/*.coffee test/*.coffee && browserify -r .:jsongraph > jsongraph.js'",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {

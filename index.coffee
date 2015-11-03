@@ -1,5 +1,4 @@
 jref = require 'json-ref-lite'
-typeshave = require('typeshave').typesafe
 clone   = (obj) -> JSON.parse( JSON.stringify obj )
 expression = require './lib/expression'
   
@@ -56,10 +55,8 @@ module.exports = ( (jg) ->
         return if err is "flow-stop" 
         throw err
 
-  jg.run = typeshave
-    startnode: { type: "string", required: true }
-    data:      { type: "object", required: true }
-  , (startnode,data,cb) ->
+  jg.run = (startnode,data,cb) ->
+    throw 'invalid args' if ( typeof startnode != 'string' or typeof data != 'object' )
     graph = jref.resolve clone jg.graph
     node.name = name for name,node of graph.graph
     throw 'node "'+startnode+'" not found' if not graph?.graph?[ startnode ]?
@@ -83,12 +80,8 @@ module.exports = ( (jg) ->
     run: jg.run
     evaluate: jg.evaluate
 
-  jg.init = typeshave
-    graph: 
-      type: "object"
-      properties:
-        graph: { type:"object", required:true }
-  , (graph) ->
+  jg.init = (graph) ->
+    throw 'invalid args' if ( typeof graph != 'object' or not graph.graph? )
     @.graph = graph
     return @.utils
 
