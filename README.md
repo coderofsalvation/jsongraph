@@ -2,6 +2,8 @@
 
 Dont think trees, think jsongraph, think graphmorphic applications.
 
+    graph.json -> db | server -> clients    
+
 ## Usage 
 
     npm install --save jsongraph
