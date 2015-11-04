@@ -7,28 +7,28 @@
   json = {
     graph: {
       a: {
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/b"
           }
         ]
       },
       b: {
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/a"
           }
         ]
       },
       c: {
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/a"
           }
         ]
       },
       d: {
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/c"
           }

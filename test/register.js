@@ -8,14 +8,14 @@
     graph: {
       a: {
         type: "foo",
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/b"
           }
         ]
       },
       b: {
-        output: [
+        "$ref": [
           {
             "$ref": "#/graph/a"
           }

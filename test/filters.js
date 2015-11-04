@@ -9,23 +9,23 @@
   json = {
     graph: {
       a: {
-        output: [
+        "$ref": [
           {
-            "$ref": "#/b"
+            "$ref": "#/graph/b"
           }
         ]
       },
       b: {
-        output: [
+        "$ref": [
           {
-            "$ref": "#/a"
+            "$ref": "#/graph/a"
           }
         ]
       },
       c: {
-        output: [
+        "$ref": [
           {
-            "$ref": "#/a"
+            "$ref": "#/graph/a"
           }
         ]
       }
@@ -41,5 +41,7 @@
   graph.run('b', {
     foo: "bar"
   });
+
+  console.log(path.join('->'));
 
 }).call(this);

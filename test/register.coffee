@@ -6,9 +6,9 @@ json =
   graph:
     a:
       type: "foo"
-      output: [{"$ref": "#/graph/b"}]
+      "$ref": [{"$ref": "#/graph/b"}]
     b:
-      output: [{"$ref": "#/graph/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
 
 # register plugin 
 jg.register 'foo', (me,data,next) ->

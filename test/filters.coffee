@@ -7,11 +7,11 @@ path = []
 json =
   graph:
     a:
-      output: [{"$ref": "#/b"}]
+      "$ref": [{"$ref": "#/graph/b"}]
     b:
-      output: [{"$ref": "#/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
     c:
-      output: [{"$ref": "#/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
 
 # push global filter
 jg.filters.global.rememberpath = (node,data) ->
@@ -19,3 +19,5 @@ jg.filters.global.rememberpath = (node,data) ->
 
 graph = jg.init json
 graph.run 'b', {foo:"bar"}
+
+console.log path.join '->'

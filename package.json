@@ -1,13 +1,13 @@
 {
   "name": "jsongraph",
-  "version": "1.0.68",
+  "version": "1.0.69",
   "description": "powerful minimalist graph/dataflow programming based on jsonschema references (nodejs/coffeescript)",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "json-ref-lite": "~1.0.61",
+    "json-ref-lite": "~1.0.63",
     "property-expr": "^1.3.1",
     "typeshave": "~0.2.44"
   },

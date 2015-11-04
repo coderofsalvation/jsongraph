@@ -1,6 +1,5 @@
 jref = require 'json-ref-lite'
 clone   = (obj) -> JSON.parse( JSON.stringify obj )
-expression = require './lib/expression'
   
 module.exports = ( (jg) ->
 
@@ -49,8 +48,8 @@ module.exports = ( (jg) ->
           filter node,data for filtername,filter of jg.filters.global 
           console.log "  ├ output: "+ JSON.stringify data if jg.opts.verbose > 1
           node.processed = ( if not node.processed? then 1 else ++node.processed )
-          if node.output?
-            jg._run o, clone(data),cb for o in node.output
+          if node["$ref"]?
+            jg._run o, clone(data),cb for o in node["$ref"]
       catch err 
         return if err is "flow-stop" 
         throw err
@@ -75,8 +74,8 @@ module.exports = ( (jg) ->
       graph = jg.graph.graph
       a = graph[a] if typeof a != "object" and graph[a]?
       b = graph[b] if typeof b != "object" and graph[b]?
-      a.output = [] if not a.output?
-      a.output.push b
+      a["$ref"] = [] if not a["$ref"]?
+      a["$ref"].push b
     run: jg.run
     evaluate: jg.evaluate
 
@@ -90,8 +89,8 @@ module.exports = ( (jg) ->
     jref.resolve graph
     delete graph.data
     return graph
-  
-  jg.parsers.expr = expression.parse
+
+  jg.parsers.expr = (graph,data) -> jref.evaluate graph,data
 
   return jg
 

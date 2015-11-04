@@ -4,12 +4,14 @@ jg = require 'jsongraph'
 json =
   graph:
     a:
-      output: [{"$ref": "#/graph/b"}]
+      "$ref": [{"$ref": "#/graph/b"}]
     b:
-      output: [{"$ref": "#/graph/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
     c:
-      output: [{"$ref": "#/graph/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
 
 jg.opts.verbose = 2
 graph = jg.init json
 graph.run 'b', {foo:"bar"}
+
+#graph.jsonschema()

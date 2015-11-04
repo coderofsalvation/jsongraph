@@ -2,28 +2,28 @@
 (function() {
   module.exports = {
     a: {
-      output: [
+      "$ref": [
         {
           "$ref": "#/b"
         }
       ]
     },
     b: {
-      output: [
+      "$ref": [
         {
           "$ref": "#/a"
         }
       ]
     },
     c: {
-      output: [
+      "$ref": [
         {
           "$ref": "#/a"
         }
       ]
     },
     d: {
-      output: [
+      "$ref": [
         {
           "$ref": "#/c"
         }

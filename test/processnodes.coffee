@@ -5,13 +5,13 @@ jg = require 'jsongraph'
 json =
   graph:
     a:
-      output: [{"$ref": "#/graph/b"}]
+      "$ref": [{"$ref": "#/graph/b"}]
     b:
-      output: [{"$ref": "#/graph/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
     c:
-      output: [{"$ref": "#/graph/a"}]
+      "$ref": [{"$ref": "#/graph/a"}]
     d:
-      output: [{"$ref": "#/graph/c"}]
+      "$ref": [{"$ref": "#/graph/c"}]
 
 # bind some functions
 

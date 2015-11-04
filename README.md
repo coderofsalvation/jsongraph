@@ -2,7 +2,7 @@
 
 Dont think trees, think jsongraph, think graphmorphic applications.
 
-    graph.json -> db | server -> clients    
+> NOTE: this module is based on [json-ref-lite](https://npmjs.org/packages/json-ref-lite). Use json-ref-lite if you just want to work with plain jsongraphs, without the dataflow runtime below.
 
 ## Usage 
 
@@ -16,9 +16,9 @@ Graph b<->a<-c expressed in json using jsonschema pointers:
 
     jg = require 'jsongraph' 
     json = {
-      "a": { output: [{"$ref":"/graph/b"}] },
-      "b": { output: [{"$ref":"/graph/a"}] },
-      "c": { output: [{"$ref":"/graph/a"}] }
+      "a": { "$ref": [{"$ref":"/graph/b"}] },
+      "b": { "$ref": [{"$ref":"/graph/a"}] },
+      "c": { "$ref": [{"$ref":"/graph/a"}] }
     }
 
 > NOTE: see javascript version [here](/test/test.js)
@@ -44,14 +44,14 @@ Graph b<->a<-c expressed in json using jsonschema pointers:
 
     graph.run 'c', {foo:"bar"}
 
-output:
+"$ref":
 
     [ b ]
       ├ input : {"foo":"bar"}
-      ├ output: {"foo":"bar"}
+      ├ "$ref": {"foo":"bar"}
     [ a ]
       ├ input : {"foo":"bar"}
-      ├ output: {"foo":"bar"}
+      ├ "$ref": {"foo":"bar"}
  
 > NOTE: see javascript version [here](/test/test.js)
 
@@ -61,21 +61,21 @@ You can process data, and do graph- or flowbased programming like so:
 
     json =
       graph:
-        a: { type: "foo", output: [{"$ref": "#/graph/b"}] }
-        b: { output: [{"$ref": "#/graph/a"}] }
+        a: { type: "foo", "$ref": [{"$ref": "#/graph/b"}] }
+        b: { "$ref": [{"$ref": "#/graph/a"}] }
 
     jg.register 'foo', (me,data,next) ->
       data.foo = true;
       next me,data
 
-output:
+"$ref":
 
     [ b ]
       ├ input : {}
-      ├ output: {"b":true}
+      ├ "$ref": {"b":true}
     [ a ]
       ├ input : {"b":true}
-      ├ output: {"b":true,"foo":true}
+      ├ "$ref": {"b":true,"foo":true}
 
 Now when `data.foo` is set, whenever a node with type `foo` is executed.
 
@@ -105,7 +105,7 @@ This is especially handy for debugging and safety purposes.
     graph.run 'b'
     console.log path.join '->'
 
-output:
+"$ref":
 
     b->a
 
@@ -128,7 +128,7 @@ output:
     graph.evaluate data, {parsers:["expr","ref"]}
     graph.dump()
 
-output:
+"$ref":
 
     {
       "graph": {
@@ -145,7 +145,7 @@ Instead of evaluating the whole graph, you can also just evaluate a single node 
 
 # Notes 
 
-* increase the `jg.opts.verbose` value for more verbose console.log output
+* increase the `jg.opts.verbose` value for more verbose console.log "$ref"
 * `jg.opts.maxrecurse` is set to '1' by default to prevent infinite recursion. 
 You can set this to another value, but you'll need to prepare your process-functions to keep track of this instead.
 * overriding the `jg.opts.halt` function allows you to implement your own node-halting flow

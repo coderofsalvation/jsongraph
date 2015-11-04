@@ -1,9 +1,9 @@
 module.exports =
   a:
-    output: [{"$ref": "#/b"}]
+    "$ref": [{"$ref": "#/b"}]
   b:
-    output: [{"$ref": "#/a"}]
+    "$ref": [{"$ref": "#/a"}]
   c:
-    output: [{"$ref": "#/a"}]
+    "$ref": [{"$ref": "#/a"}]
   d:
-    output: [{"$ref": "#/c"}]
+    "$ref": [{"$ref": "#/c"}]
