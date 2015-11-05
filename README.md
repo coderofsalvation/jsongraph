@@ -2,7 +2,9 @@
 
 Dont think trees, think jsongraph, think graphmorphic applications.
 
-> NOTE: this module is based on [json-ref-lite](https://npmjs.org/packages/json-ref-lite). Use json-ref-lite if you just want to work with plain jsongraphs, without the dataflow runtime below.
+> NOTE #1: this module is based on [json-ref-lite](https://npmjs.org/packages/json-ref-lite). Use json-ref-lite if you just want to work with plain jsongraphs, without the dataflow runtime below.
+
+> NOTE #2: for server/clients sharing a restgraph see [ohmygraph](https://npmjs.org/packages/ohmygraph)
 
 ## Usage 
 
@@ -44,7 +46,7 @@ Graph b<->a<-c expressed in json using jsonschema pointers:
 
     graph.run 'c', {foo:"bar"}
 
-"$ref":
+output:
 
     [ b ]
       ├ input : {"foo":"bar"}
@@ -68,7 +70,7 @@ You can process data, and do graph- or flowbased programming like so:
       data.foo = true;
       next me,data
 
-"$ref":
+output:
 
     [ b ]
       ├ input : {}
@@ -105,7 +107,7 @@ This is especially handy for debugging and safety purposes.
     graph.run 'b'
     console.log path.join '->'
 
-"$ref":
+output:
 
     b->a
 
@@ -128,7 +130,7 @@ This is especially handy for debugging and safety purposes.
     graph.evaluate data, {parsers:["expr","ref"]}
     graph.dump()
 
-"$ref":
+output:
 
     {
       "graph": {
